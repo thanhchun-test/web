@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+        *{
+            box-sizing: border-box;
+        }
+        body{
+            font-family: "Montserrat", sans-serif;
+            font-size: 17px;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f5f5f5;
+        }
+        form{
+            border: 1px solid #dadce0;
+            border-radius: 5px;
+            padding: 30px;
+            background: #fff;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h3{
+            text-align: center;
+            font-size: 24px;
+            font-weight: 500;
+        }
+        #wrapper{
+           display: flex;
+           justify-content: center;
+           align-items: center; 
+           min-height: 80vh;
+        }
+        input{
+            height: 50px;
+            width: 300px;
+            outline: none;
+            border: 1px solid #dadce0;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: inherit;
+            color: #202124;
+        }
+        label{
+            position: absolute;
+            padding: 0px 5px;
+            left: 10px;
+            top: 50%;
+            pointer-events: none;
+            transform: translateY(-50%);
+            transition: all 0.3s ease-in-out;
+            background: #fff;
+        }
+        .form-group{
+            margin-bottom: 15px;
+            position: relative;
+        }
+        .form-group input:focus{
+            border: 2px solid #1a73e8;
+        }
+        .form-group input:focus + label, .form-group input:valid + label{
+            top: 0px;
+            font-size: 13px;
+            font-weight: 500;
+            color: #1a73e8;
+        }
+        input#btn-login{
+            background: #1a73e8;
+            color: #fff;
+            cursor: pointer;
+            width: 100%;
+        }
+        input#btn-login:hover{
+            opacity: 0.85;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+        <form onsubmit="login(event)">
+            <h3>Đăng nhập</h3>
+            <div class="form-group">
+                <input id="email" type="email" name="email" required>
+                <label for="email">Email</label>
+            </div>
+            <div class="form-group">
+                <input id="password" type="password" name="password" required>
+                <label for="password">Mật khẩu</label>
+            </div>
+            <input type="submit" value="Đăng nhập" id="btn-login">
+        </form>
+    </div>
+    <script>
+        function login(event) {
+            event.preventDefault();
+        
+            var user = {
+                email: "nguyenthanhtrung15102003@gmail.com",
+                password: "Trung@1510"
+            };
+            
+            var email = document.getElementById("email").value;
+            var password = document.getElementById("password").value;
+            console.log("Email entered:", email);
+            console.log("Password entered:", password);
+    
+            if (!email) {
+                alert("Vui lòng nhập lại email!");
+            } else if (email === user.email && password === user.password) {
+                alert("Đăng Nhập Thành Công!");
+                window.location.href = "index_home.html";
+            } else {
+                alert("Đăng Nhập Thất Bại!");
+            }
+        }
+    </script>
+</body>
+</html>
